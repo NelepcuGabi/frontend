@@ -1,36 +1,34 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/ProjectPage.css';
-
-function ProjectCard({ title, description, imageUrl, author }) {
-  return (
-    <div className="project-card">
-      <div className="card-image">
-        {imageUrl && <img src={imageUrl} alt={title} />}
-      </div>
-      <div className="card-content">
-        <h3>{title}</h3>
-        <p>{description}</p>
-      </div>
-      <div className="card-author">
-        <p>by {author}</p>
-      </div>
-    </div>
-  );
-}
+import ProjectCard from './ProjectCard'; // Adjust path as necessary
 
 function ProjectsPage() {
   const [projects, setProjects] = useState([]);
   const [selectedTag, setSelectedTag] = useState('all');
+  const [selectedDifficulty, setSelectedDifficulty] = useState('all');
+  const [searchQuery, setSearchQuery] = useState('');
+  const [appliedQuery, setAppliedQuery] = useState('');
+  const [appliedTag, setAppliedTag] = useState('all');
+  const [appliedDifficulty, setAppliedDifficulty] = useState('all');
 
   useEffect(() => {
     async function fetchProjects() {
       try {
-        const response = await fetch('/api/files'); // Assuming backend API route at '/api/projects'
+        const response = await fetch('${process.env.REACT_APP_BACKEND_URL}/api/files/files');
         if (response.ok) {
-          const projectList = await response.json();
+          const fileList = await response.json();
+          const projectList = fileList.map(file => ({
+            id: file._id,
+            title: file.metadata.title,
+            description: file.metadata.description,
+            imageUrl: null, // Adjust if you have image URLs
+            author: file.metadata.name,
+            type: file.metadata.type,
+            difficulty: file.metadata.difficulty // Adjust if you have difficulty information
+          }));
           setProjects(projectList);
         } else {
-          console.error('Failed to fetch projects');
+          console.error('Failed to fetch projects. Status:', response.status);
         }
       } catch (error) {
         console.error('Error fetching projects:', error);
@@ -40,34 +38,86 @@ function ProjectsPage() {
     fetchProjects();
   }, []);
 
-  const handleTagClick = (tag) => {
-    setSelectedTag(tag);
+  // Handle input change in search bar
+  const handleSearchChange = (event) => {
+    setSearchQuery(event.target.value);
   };
 
-  const filteredProjects = projects.filter((project) =>
-    selectedTag === 'all' || project.tags.includes(selectedTag)
-  );
+  // Handle tag filter change
+  const handleTagChange = (event) => {
+    setSelectedTag(event.target.value);
+  };
+
+  // Handle difficulty filter change
+  const handleDifficultyChange = (event) => {
+    setSelectedDifficulty(event.target.value);
+  };
+
+  // Handle the "Cauta" button click
+  const handleSearchButtonClick = () => {
+    setAppliedQuery(searchQuery);
+    setAppliedTag(selectedTag);
+    setAppliedDifficulty(selectedDifficulty);
+  };
+
+  // Filter projects based on applied tag, difficulty, and the applied search query
+  const filteredProjects = projects.filter((project) => {
+    const typeMatches = appliedTag === 'all' || project.type === appliedTag;
+    const difficultyMatches = appliedDifficulty === 'all' || project.difficulty === appliedDifficulty;
+    const searchMatches = project.title.toLowerCase().includes(appliedQuery.toLowerCase());
+    return typeMatches && difficultyMatches && searchMatches;
+  });
 
   return (
     <div className="projects-page">
-      <h2>Proiectele mele</h2>
-      <div className="tag-buttons">
-        <button onClick={() => handleTagClick('tag1')}>Tag 1</button>
-        <button onClick={() => handleTagClick('tag2')}>Tag 2</button>
-        <button onClick={() => handleTagClick('all')}>Toate</button>
+      <div className="search-bar">
+        <input
+          type="text"
+          placeholder="Cauta un proiect..."
+          value={searchQuery}
+          onChange={handleSearchChange}
+        />
+        <button onClick={handleSearchButtonClick}>
+          Cauta
+        </button>
+      </div>
+      <div className="filters">
+        <div className="filter">
+          <label htmlFor="type-select">Tip:</label>
+          <select id="type-select" value={selectedTag} onChange={handleTagChange}>
+            <option value="all">Toate</option>
+            <option value="Programare">Programare</option>
+            <option value="Retelistica">Retelistica</option>
+          </select>
+        </div>
+        <div className="filter">
+          <label htmlFor="difficulty-select">Dificultate:</label>
+          <select id="difficulty-select" value={selectedDifficulty} onChange={handleDifficultyChange}>
+            <option value="all">Toate</option>
+            <option value="Incepator">Incepator</option>
+            <option value="Mediu">Mediu</option>
+            <option value="Avansat">Avansat</option>
+          </select>
+        </div>
       </div>
       <div className="project-list">
-        {filteredProjects.map((project) => (
-          <ProjectCard
-            key={project.id}
-            title={project.title}
-            description={project.description}
-            imageUrl={project.imageUrl} // Assuming the backend includes imageUrl in project data
-            author={project.author}
-          />
-        ))}
+        {filteredProjects.length > 0 ? (
+          filteredProjects.map((project) => (
+            <ProjectCard
+              key={project.id}
+              id={project.id}
+              title={project.title}
+              description={project.description}
+              imageUrl={project.imageUrl}
+              author={project.author}
+              difficulty={project.difficulty}
+              type={project.type}
+            />
+          ))
+        ) : (
+          <p>No projects found for this search.</p>
+        )}
       </div>
-      {/* Add project creation form/button here (optional) */}
     </div>
   );
 }
