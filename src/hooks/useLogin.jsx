@@ -9,11 +9,11 @@ const useLogin = () => {
     
     const loginUser = async (values) => {
         try {
-            const backendURL = process.env.REACT_APP_BACKEND_URL;
+           
             console.log(backendURL)
             setError(null);
             setLoading(true);
-            const res = await fetch(`165.22.95.36/api/auth/login`, {
+            const res = await fetch(`/api/auth/login`, {
                 method: 'POST',
                 headers: { 
                     'Content-Type': 'application/json',

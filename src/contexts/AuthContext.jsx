@@ -19,7 +19,7 @@ const AuthProvider = ({ children }) => {
 
     const fetchUserData = async (token) => {
         try {
-            const response = await axios.get(`165.22.95.36/api/user`, {
+            const response = await axios.get(`/api/user`, {
                 headers: { Authorization: `Bearer ${token}` },
             });
             setUserData(response.data);
