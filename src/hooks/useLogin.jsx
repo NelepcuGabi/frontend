@@ -13,7 +13,7 @@ const useLogin = () => {
             
             setError(null);
             setLoading(true);
-            const res = await fetch(`${process.env.REACT_APP_BACKEND_URL}/auth/login`, {
+            const res = await fetch('codenethub.telacad.ro/api/auth/login', {
                 method: 'POST',
                 headers: { 
                     'Content-Type': 'application/json',

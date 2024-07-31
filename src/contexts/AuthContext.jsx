@@ -19,8 +19,8 @@ const AuthProvider = ({ children }) => {
 
     const fetchUserData = async (token) => {
         try {
-            
-            const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/user`, {
+            console.log
+            const response = await axios.get('codenethub.telacad.ro/api/user', {
                 headers: { Authorization: `Bearer ${token}` },
             });
             setUserData(response.data);
