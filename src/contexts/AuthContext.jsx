@@ -3,7 +3,7 @@ import Cookies from 'js-cookie';
 import axios from 'axios';
 
 const AuthContext = createContext();
-const backendURL = process.env.REACT_APP_BACKEND_URL;
+
 const AuthProvider = ({ children }) => {
     const [token, setToken] = useState(null);
     const [userData, setUserData] = useState(null);
@@ -19,7 +19,8 @@ const AuthProvider = ({ children }) => {
 
     const fetchUserData = async (token) => {
         try {
-            const response = await axios.get(`codenethub.telacad.ro/api/user`, {
+            
+            const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/user`, {
                 headers: { Authorization: `Bearer ${token}` },
             });
             setUserData(response.data);
