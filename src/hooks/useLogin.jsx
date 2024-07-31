@@ -13,7 +13,7 @@ const useLogin = () => {
             console.log(backendURL)
             setError(null);
             setLoading(true);
-            const res = await fetch(`/api/auth/login`, {
+            const res = await fetch(`165.22.95.36/api/auth/login`, {
                 method: 'POST',
                 headers: { 
                     'Content-Type': 'application/json',
