@@ -13,7 +13,8 @@ import { useAuth } from "./contexts/AuthContext.jsx";
 import Profile from './pages/Profile.jsx'
 import ProjectDetailPage from './pages/ProjectDetailPage.jsx'; // Create this component
 import Edits from "./pages/Edits.jsx";
-
+import Contact from './pages/Contact.jsx';
+import About from './pages/About.jsx';
 const App = () => {
   const { isAuthenticated } = useAuth();
 
@@ -27,6 +28,9 @@ const App = () => {
 
         {/* Define routes */}
         <Route path="/home" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        
         <Route path="/register" element={!isAuthenticated ? <Register /> : <Navigate to="/home" />} />
         <Route path="/login" element={!isAuthenticated ? <Login /> : <Navigate to="/home" />} />
         <Route path="/dashboard" element={<Dashboard />} />

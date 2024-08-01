@@ -13,7 +13,7 @@ const useLogin = () => {
             
             setError(null);
             setLoading(true);
-            const res = await fetch('http://codenethub.telacad.ro/api/auth/login', {
+            const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/auth/login`, {
                 method: 'POST',
                 headers: { 
                     'Content-Type': 'application/json',

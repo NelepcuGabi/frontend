@@ -1,5 +1,4 @@
 /* Base Navbar Styles */
-/* Base Navbar Styles */
 .navbar {
   display: flex;
   justify-content: center;
@@ -9,12 +8,10 @@
   position: fixed;
   top: 0;
   width: 100%;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  z-index: 1000; /* Ensure it's below other elements with higher z-index */
+  
+  z-index: 1000;
   left: 0;
 }
-
-
 
 .navbar__brand {
   position: absolute;
@@ -56,12 +53,17 @@
 .sidebar {
   position: fixed;
   top: 60px; /* Adjust based on the height of the navbar */
-  left: 0; /* Make sidebar always visible */
+  left: 0; 
   padding: 20px;
   background-color: #ffffff;
   height: calc(100% - 60px); 
   width: 200px;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.sidebar--hidden {
+  transform: translateX(-100%);
 }
 
 .sidebar__menu {
@@ -70,13 +72,9 @@
   padding: 0;
 }
 
-.sidebar--hidden {
-  display: none; /* Hide sidebar when needed */
-}
-
 .sidebar__item {
   margin-bottom: 10px;
-  margin-left: 20px; /* Removed unnecessary margin adjustments */
+  margin-left: 20px;
   margin-top: 30px;
 }
 
@@ -91,7 +89,53 @@
   color: #007BFF;
 }
 
-/* Removed Hover area as it's no longer needed */
+/* Toggler Button Styles */
+.navbar__toggler {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  background-color: #ffffff; /* Black background */
+  border: none;
+  cursor: pointer;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 1100; /* Ensure it's above other content */
+  transition: background-color 0.3s;
+}
+
+.navbar__toggler:hover {
+  background-color: #3d93ee; /* Slightly lighter black on hover */
+}
+
+.navbar__toggler .line {
+  width: 20px;
+  height: 2px;
+  background-color: #000000; /* White lines for contrast */
+  margin: 2px 0;
+  transition: all 0.3s;
+}
+
+/* Transform to "X" on open */
+.navbar__toggler.open .line:nth-child(1) {
+  transform: rotate(45deg);
+  position: relative;
+  top: 6px;
+}
+
+.navbar__toggler.open .line:nth-child(2) {
+  opacity: 0;
+}
+
+.navbar__toggler.open .line:nth-child(3) {
+  transform: rotate(-45deg);
+  position: relative;
+  top: -6px;
+}
+
 @media (max-width: 768px) {
   .navbar__menu {
     display: none;
@@ -110,34 +154,11 @@
     align-items: center;
   }
 
-  .navbar__menu.open, .sidebar__menu.open {
+  .sidebar__menu.open {
     display: flex;
   }
 
   .navbar__toggler {
     display: flex;
-    cursor: pointer;
-    flex-direction: column;
-    justify-content: space-around;
-    height: 24px;
-  }
-
-  .navbar__toggler .line {
-    width: 24px;
-    height: 3px;
-    background-color: #000;
-    transition: all 0.3s;
-  }
-
-  .navbar__toggler .open {
-    transform: rotate(45deg);
-  }
-
-  .navbar__toggler .open:nth-child(2) {
-    opacity: 0;
-  }
-
-  .navbar__toggler .open:nth-child(3) {
-    transform: rotate(-45deg);
   }
 }

@@ -23,7 +23,7 @@ function Navbar() {
 
   return (
     <>
-      <div className={`navbar ${hideSidebar ? 'navbar--no-sidebar' : ''}`}>
+      <div className="navbar">
         <a href="/" className="navbar__brand">
           CodeNetHub
         </a>
@@ -51,9 +51,14 @@ function Navbar() {
             )}
           </ul>
         </div>
+        <button className={`navbar__toggler ${menuOpen ? 'open' : ''}`} onClick={navToggle}>
+          <span className="line"></span>
+          <span className="line"></span>
+          <span className="line"></span>
+        </button>
       </div>
 
-      <div className={`sidebar ${hideSidebar ? 'sidebar--hidden' : ''}`}>
+      <div className={`sidebar ${hideSidebar ? 'sidebar--hidden' : ''} ${menuOpen ? '' : 'sidebar--hidden'}`}>
         <ul className={`sidebar__menu ${menuOpen ? 'open' : ''}`}>
           <li className="sidebar__item">
             <Link to="/" className="sidebar__link" onClick={navToggle}>

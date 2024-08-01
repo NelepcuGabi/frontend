@@ -19,7 +19,7 @@ function Edits() {
             }
 
             try {
-                const metadataResponse = await fetch(`http://localhost:3000/api/files/files/${id}`);
+                const metadataResponse = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/files/files/${id}`);
                 if (!metadataResponse.ok) {
                     throw new Error('Failed to fetch project metadata. Status: ' + metadataResponse.status);
                 }
@@ -39,7 +39,7 @@ function Edits() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/files/files/${id}`, {
+            const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/files/files/${id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

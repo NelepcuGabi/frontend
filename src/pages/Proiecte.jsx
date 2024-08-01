@@ -63,7 +63,7 @@ function UploadProject() {
     formData.append('userName', user.name); // Include userName
 
     try {
-      const response = await fetch('${process.env.REACT_APP_BACKEND_URL}/api/files/upload', {
+      const response = await fetch(```${import.meta.env.VITE_BACKEND_URL}/api/files/upload`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`, // Include the token in the headers
@@ -141,12 +141,15 @@ function UploadProject() {
           ></textarea>
         </div>
         <div className="form-group">
-          <label htmlFor="file">Fișier:</label>
+          <label htmlFor="file">Fișier:
+          <div><p>FISIERUL TREBUIE SA FIE PDF</p></div>
+          </label>
           <input
             type="file"
             id="file"
             onChange={(e) => setFile(e.target.files[0])}
             required
+            
           />
         </div>
         <button type="submit" className="submit-button">Încărcați</button>

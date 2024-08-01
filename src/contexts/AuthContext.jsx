@@ -8,7 +8,7 @@ const AuthProvider = ({ children }) => {
     const [token, setToken] = useState(null);
     const [userData, setUserData] = useState(null);
     const [isAuthenticated, setIsAuthenticated] = useState(false);
-
+    console.log(import.meta.env)
     useEffect(() => {
         const storedToken = Cookies.get('accessToken');
         if (storedToken) {
@@ -20,7 +20,7 @@ const AuthProvider = ({ children }) => {
     const fetchUserData = async (token) => {
         try {
             console.log
-            const response = await axios.get('http://codenethub.telacad.ro/api/user', {
+            const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/user`, {
                 headers: { Authorization: `Bearer ${token}` },
             });
             setUserData(response.data);

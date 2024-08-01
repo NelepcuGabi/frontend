@@ -18,7 +18,7 @@ function ProjectDetailPage() {
 
             try {
                 // Obține metadata fișierului
-                const metadataResponse = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/files/files/${id}`);
+                const metadataResponse = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/files/files/${id}`);
                 if (!metadataResponse.ok) {
                     throw new Error('Failed to fetch project metadata. Status: ' + metadataResponse.status);
                 }
@@ -43,7 +43,7 @@ function ProjectDetailPage() {
     }
 
     // URL-ul pentru a accesa fișierul pentru previzualizare
-    const fileUrl = `${process.env.REACT_APP_BACKEND_URL}/api/files/${project.filename}`;
+    const fileUrl = `${import.meta.env.VITE_BACKEND_URL}/api/files/${project.filename}`;
 
     const renderPreview = () => {
         switch (project.contentType) {
@@ -87,6 +87,7 @@ function ProjectDetailPage() {
                 <div className="project-file">
                     {renderPreview()}
                 </div>
+                
                 {isAuthenticated && (
                     <Link to={`/edit/${id}`} className="edit-button">Edit Project</Link>
                 )}

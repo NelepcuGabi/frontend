@@ -81,16 +81,40 @@ a {
   transform: translateY(-10px);
 }
 
-.course-card h3 {
-  font-size: 1.5rem;
-  margin-bottom: 15px;
-  color: #343a40;
+.hub-description-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 20px;
+  background-color: #ffffff; /* White background for contrast */
+  width: 100%;
 }
 
-.course-card p {
-  font-size: 1rem;
-  color: #6c757d;
+.hub-description-content {
+  max-width: 1200px; /* Restrict the maximum width of the content */
+  width: 100%;
 }
+
+.hub-description-section h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.hub-description-section p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+/* Ensure full width of the container */
+.hub-description-section::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
 
 /* Footer */
 .footer {

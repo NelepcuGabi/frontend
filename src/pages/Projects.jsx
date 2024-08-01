@@ -14,7 +14,7 @@ function ProjectsPage() {
   useEffect(() => {
     async function fetchProjects() {
       try {
-        const response = await fetch('${process.env.REACT_APP_BACKEND_URL}/api/files/files');
+        const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/files/files`);
         if (response.ok) {
           const fileList = await response.json();
           const projectList = fileList.map(file => ({
