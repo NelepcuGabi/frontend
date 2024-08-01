@@ -16,7 +16,7 @@ const useSignup = () => {
         try {
             setError(null);
             setLoading(true);
-            const res = await fetch('165.22.95.36/api/auth/signup', {
+            const res = await fetch('codenethub.netlify.app/api/auth/signup', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
