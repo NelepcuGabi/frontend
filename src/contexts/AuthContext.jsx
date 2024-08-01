@@ -20,7 +20,7 @@ const AuthProvider = ({ children }) => {
     const fetchUserData = async (token) => {
         try {
             console.log
-            const response = await axios.get('codenethub.telacad.ro/api/user', {
+            const response = await axios.get('165.22.95.36/api/user', {
                 headers: { Authorization: `Bearer ${token}` },
             });
             setUserData(response.data);
