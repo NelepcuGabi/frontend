@@ -20,7 +20,7 @@ const AuthProvider = ({ children }) => {
     const fetchUserData = async (token) => {
         try {
             console.log
-            const response = await axios.get('codenethub.netlify.app/api/user', {
+            const response = await axios.get('http://codenethub.telacad.ro/api/user', {
                 headers: { Authorization: `Bearer ${token}` },
             });
             setUserData(response.data);
