@@ -25,7 +25,7 @@ const Dashboard = () => {
     setLoading(true);
     const userId = userData.id;
     try {
-      const response = await fetch(`http://localhost:3000/api/user/files/`, {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/user/files/`, {
         method: 'GET',
         headers: {
           'Authorization': `Bearer ${token}`,
