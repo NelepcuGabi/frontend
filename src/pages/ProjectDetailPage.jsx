@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { useAuth } from '../contexts/AuthContext'; // Importă contextul de autentificare
+import { useAuth } from '../contexts/AuthContext';
 import '../styles/ProjectDetailPage.css';
+import Comments from '../components/Comments';
 
 function ProjectDetailPage() {
-    const { id } = useParams(); // Obține ID-ul proiectului din URL
-    const [project, setProject] = useState(null); // Inițializează starea cu null
-    const [error, setError] = useState(null); // Starea pentru mesajele de eroare
-    const { isAuthenticated } = useAuth(); // Obține statutul de autentificare
+    const { id } = useParams();
+    const [project, setProject] = useState(null);
+    const [error, setError] = useState(null);
+    const { isAuthenticated } = useAuth();
 
     useEffect(() => {
         async function fetchProject() {
@@ -17,32 +18,29 @@ function ProjectDetailPage() {
             }
 
             try {
-                // Obține metadata fișierului
                 const metadataResponse = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/files/files/${id}`);
                 if (!metadataResponse.ok) {
                     throw new Error('Failed to fetch project metadata. Status: ' + metadataResponse.status);
                 }
                 const file = await metadataResponse.json();
                 setProject(file);
-
             } catch (error) {
-                setError(error.message); // Setează mesajul de eroare în stare
+                setError(error.message);
                 console.error('Error fetching project:', error);
             }
         }
 
         fetchProject();
-    }, [id]); // Include id în array-ul de dependențe pentru a refetch-ui dacă se schimbă
+    }, [id]);
 
     if (error) {
-        return <div>Error: {error}</div>; // Afișează mesajul de eroare
+        return <div>Error: {error}</div>;
     }
 
     if (!project) {
-        return <div>Loading...</div>; // Afișează un mesaj de încărcare în timp ce datele sunt obținute
+        return <div>Loading...</div>;
     }
 
-    // URL-ul pentru a accesa fișierul pentru previzualizare
     const fileUrl = `${import.meta.env.VITE_BACKEND_URL}/api/files/${project.filename}`;
 
     const renderPreview = () => {
@@ -87,11 +85,13 @@ function ProjectDetailPage() {
                 <div className="project-file">
                     {renderPreview()}
                 </div>
-                
                 {isAuthenticated && (
                     <Link to={`/edit/${id}`} className="edit-button">Edit Project</Link>
                 )}
             </div>
+            
+            {/* Adăugarea secțiunii de comentarii */}
+            <Comments projectId={id} />
         </div>
     );
 }

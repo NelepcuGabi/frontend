@@ -63,7 +63,7 @@ function UploadProject() {
     formData.append('userName', user.name); // Include userName
 
     try {
-      const response = await fetch(```${import.meta.env.VITE_BACKEND_URL}/api/files/upload`, {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/files/upload`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`, // Include the token in the headers

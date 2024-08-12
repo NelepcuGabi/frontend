@@ -15,6 +15,7 @@ import ProjectDetailPage from './pages/ProjectDetailPage.jsx'; // Create this co
 import Edits from "./pages/Edits.jsx";
 import Contact from './pages/Contact.jsx';
 import About from './pages/About.jsx';
+
 const App = () => {
   const { isAuthenticated } = useAuth();
 
@@ -36,6 +37,8 @@ const App = () => {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/projects" element={<ProjectsPage/>}/>
         <Route path="/upload" element={<Proiecte/>}/>
+        <Route path="/dashboard" element={<Dashboard/>}/>
+
         
         <Route path="/project/:id" element={<ProjectDetailPage />} />
         <Route path="/edit/:id" element={<Edits />} />

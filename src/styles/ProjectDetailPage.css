@@ -88,3 +88,17 @@
 .edit-button:hover {
   background-color: #218838;
 }
+
+.comments-section {
+  margin-top: 20px;
+  border-top: 1px solid #ddd;
+  padding-top: 20px;
+}
+
+.comment {
+  margin-bottom: 20px;
+}
+
+.comment p {
+  margin: 5px 0;
+}
