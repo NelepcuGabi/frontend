@@ -32,7 +32,7 @@ const AuthProvider = ({ children }) => {
     };
 
     const login = async (newToken, newData) => {
-        Cookies.set('accessToken', newToken, { expires: 7 });
+        Cookies.set('accessToken', newToken, { expires: 999999 });
         setToken(newToken);
         setUserData(newData);
         setIsAuthenticated(true);
