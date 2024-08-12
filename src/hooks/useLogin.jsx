@@ -13,7 +13,7 @@ const useLogin = () => {
             
             setError(null);
             setLoading(true);
-            const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/auth/login`, {
+            const res = await fetch(`46.101.201.140/api/auth/login`, {
                 method: 'POST',
                 headers: { 
                     'Content-Type': 'application/json',
