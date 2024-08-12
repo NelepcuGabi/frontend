@@ -13,7 +13,7 @@ const useLogin = () => {
             
             setError(null);
             setLoading(true);
-            const res = await fetch(`https://telacad-app-fyzcu.ondigitalocean.app//api/auth/login`, {
+            const res = await fetch(`https://telacad-app-fyzcu.ondigitalocean.app/api/auth/login`, {
                 method: 'POST',
                 headers: { 
                     'Content-Type': 'application/json',
