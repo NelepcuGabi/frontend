@@ -1,19 +1,24 @@
 import React from 'react';
-import '../styles/ProjectCard.css'; // Adjust path as necessary
+import { Link } from 'react-router-dom';
+import '../styles/ProjectCard.css'; // Ensure you have styles for your cards
 
-const ProjectCard = ({ id, title, description, imageUrl, author, difficulty, type }) => {
+function ProjectCard({ id, title, description, imageUrl, author }) {
   return (
-    <div className="course-card">
-      {imageUrl && <img src={imageUrl} alt={title} style={{ width: '100%', height: 'auto', borderRadius: '8px' }} />}
-      <h3>{title}</h3>
-      <p>{description}</p>
-      <small>Author: {author}</small>
-      <br />
-      <small>Difficulty: {difficulty}</small>
-      <br />
-      <small>Type: {type}</small>
-    </div>
+    <Link to={`/project/${id}`} className="project-card-link">
+      <div className="project-card">
+        <div className="card-image">
+          {imageUrl && <img src={imageUrl} alt={title} />}
+        </div>
+        <div className="card-content">
+          <h3>{title}</h3>
+          <p>{description}</p>
+        </div>
+        <div className="card-author">
+          <p>by {author}</p>
+        </div>
+      </div>
+    </Link>
   );
-};
+}
 
 export default ProjectCard;
