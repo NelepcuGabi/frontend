@@ -14,13 +14,14 @@ const AuthProvider = ({ children }) => {
         if (storedToken) {
             setToken(storedToken);
             fetchUserData(storedToken);
+            
         }
     }, []);
 
     const fetchUserData = async (token) => {
         try {
             console.log
-            const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/user`, {
+            const response = await axios.get(`${import.meta.env.VITE_BACKEND_UR }/api/user`, {
                 headers: { Authorization: `Bearer ${token}` },
             });
             setUserData(response.data);
@@ -36,6 +37,7 @@ const AuthProvider = ({ children }) => {
         setToken(newToken);
         setUserData(newData);
         setIsAuthenticated(true);
+        console.log(storedToken);
         
     };
 
