@@ -23,6 +23,7 @@ function UploadProject() {
         const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/user/me`, {
           method: 'GET',
           headers: {
+            'Content-Type': 'application/json',
             'Authorization': `Bearer ${token}`,
           },
           credentials: 'include',
@@ -66,6 +67,7 @@ function UploadProject() {
       const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/files/upload`, {
         method: 'POST',
         headers: {
+          'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`, // Include the token in the headers
         },
         body: formData,
