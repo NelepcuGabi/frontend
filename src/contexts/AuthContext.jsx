@@ -11,7 +11,7 @@ const AuthProvider = ({ children }) => {
 
     useEffect(() => {
         const storedToken = Cookies.get('accessToken');
-        console.log('Stored Token:', storedToken); // Verifică dacă token-ul este corect
+         // Verifică dacă token-ul este corect
 
         if (storedToken) {
             setToken(storedToken);
@@ -37,7 +37,7 @@ const AuthProvider = ({ children }) => {
         setToken(newToken);
         setUserData(newData);
         setIsAuthenticated(true);
-        console.log('Logged in with Token:', newToken); // Log pentru debugging
+        // Log pentru debugging
     };
 
     const logout = () => {
