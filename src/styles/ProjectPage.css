@@ -6,8 +6,6 @@
 
 .projects-page {
   padding: 20px;
-  margin-top: -200px;
-  margin-left: 300px;
 }
 
 .search-bar {
@@ -49,34 +47,10 @@
   background-color: #0056b3; /* Darker shade on hover */
 }
 
-.tag-buttons {
-  position: fixed; /* Fixes the tag buttons to the viewport */
-  top: 80px; /* Position from the top of the viewport */
-  left: 50%; /* Centers the tag buttons horizontally */
-  transform: translateX(-50%); /* Centers the element by adjusting its horizontal position */
-  display: flex;
-  gap: 10px; /* Space between buttons */
-  width: fit-content; /* Adjust width as needed */
-}
-
-.tag-buttons button {
-  padding: 10px 20px;
-  border: none;
-  background-color: #007bff;
-  color: white;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 14px;
-}
-
-.tag-buttons button:hover {
-  background-color: #0056b3;
-}
-
 .filters {
   position: fixed; /* Fixes the filters to the viewport */
   top: 230px; /* Position from the top of the viewport */
-  left: 35%; /* Centers the filters horizontally */
+  left: 50%; /* Centers the filters horizontally */
   transform: translateX(-50%); /* Centers the element by adjusting its horizontal position */
   display: flex;
   gap: 20px; /* Space between filters */
@@ -109,27 +83,9 @@
 
 .project-list {
   display: grid;
-  grid-template-columns: repeat(5, 1fr); /* Set to a maximum of 3 columns */
-  gap: 20px;
-  margin-top: 400px;
-  margin-right: 350px;
-}
-.project-list p {
-  text-align: center;
-  width: 100%;
-}
-
-/* Responsive adjustments */
-@media (max-width: 1200px) {
-  .project-list {
-    grid-template-columns: repeat(2, 1fr); /* 2 columns on smaller screens */
-  }
-}
-
-@media (max-width: 768px) {
-  .project-list {
-    grid-template-columns: 1fr; /* 1 column on mobile screens */
-  }
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid with minimum width for each card */
+  gap: 20px; /* Space between cards */
+  margin-top: 200px; /* Adjust as needed */
 }
 
 .course-card {
@@ -137,12 +93,26 @@
   border: 1px solid #ddd; /* Border for the cards */
   border-radius: 8px; /* Rounded corners */
   padding: 20px;
-  width: 300px; /* Fixed width for the cards */
   box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Shadows for visual effect */
+  overflow: hidden; /* Hide overflow */
+  text-align: center; /* Center align text */
+  position: relative; /* Positioning for ellipsis */
 }
 
 .course-card h3 {
   margin-top: 0;
+  font-size: 18px;
+  white-space: nowrap; /* Prevent text from wrapping */
+  overflow: hidden; /* Hide overflow */
+  text-overflow: ellipsis; /* Add ellipsis for overflowed text */
+}
+
+.course-card p {
+  margin: 10px 0;
+  font-size: 14px;
+  white-space: nowrap; /* Prevent text from wrapping */
+  overflow: hidden; /* Hide overflow */
+  text-overflow: ellipsis; /* Add ellipsis for overflowed text */
 }
 
 .load-more-button {
