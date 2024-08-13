@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from 'react';
+import Cookies from 'js-cookie';
 import '../styles/Proiecte.css';
-import { useAuth } from '../contexts/AuthContext';
 import { message } from 'antd';
 
 function UploadProject() {
-  const { token } = useAuth(); // Get the token from the Auth context
   const [title, setTitle] = useState('');
   const [type, setType] = useState('');
   const [difficulty, setDifficulty] = useState('');
   const [description, setDescription] = useState('');
   const [file, setFile] = useState(null);
   const [user, setUser] = useState({ id: '', name: '' });
+
+  // Obține token-ul din cookies
+  const token = Cookies.get('accessToken');
 
   useEffect(() => {
     if (!token) {
@@ -28,8 +30,6 @@ function UploadProject() {
           },
           credentials: 'include',
         });
-
-        console.log('Response:', response);
 
         if (response.ok) {
           const userDetails = await response.json();
@@ -67,7 +67,6 @@ function UploadProject() {
       const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/files/upload`, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`, // Include the token in the headers
         },
         body: formData,
@@ -109,12 +108,12 @@ function UploadProject() {
         <div className="form-group">
           <label htmlFor="type">Tip:</label>
           <select
-            id="type-select" // Changed ID to 'type-select'
+            id="type-select"
             value={type}
             onChange={(e) => setType(e.target.value)}
             required
           >
-            <option value="">Selectează tipul</option> {/* Added default empty option */}
+            <option value="">Selectează tipul</option>
             <option value="Programare">Programare</option>
             <option value="Retelistica">Retelistica</option>
           </select>
@@ -122,12 +121,12 @@ function UploadProject() {
         <div className="form-group">
           <label htmlFor="difficulty">Dificultate:</label>
           <select
-            id="difficulty-select" // Changed ID to 'difficulty-select'
+            id="difficulty-select"
             value={difficulty}
             onChange={(e) => setDifficulty(e.target.value)}
             required
           >
-            <option value="">Selectează dificultatea</option> {/* Added default empty option */}
+            <option value="">Selectează dificultatea</option>
             <option value="Incepator">Incepator</option>
             <option value="Mediu">Mediu</option>
             <option value="Avansat">Avansat</option>
@@ -151,7 +150,6 @@ function UploadProject() {
             id="file"
             onChange={(e) => setFile(e.target.files[0])}
             required
-            
           />
         </div>
         <button type="submit" className="submit-button">Încărcați</button>
