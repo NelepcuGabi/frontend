@@ -11,8 +11,6 @@ const AuthProvider = ({ children }) => {
 
     useEffect(() => {
         const storedToken = Cookies.get('accessToken');
-         // Verifică dacă token-ul este corect
-
         if (storedToken) {
             setToken(storedToken);
             fetchUserData(storedToken);
@@ -21,31 +19,31 @@ const AuthProvider = ({ children }) => {
 
     const fetchUserData = async (token) => {
         try {
-            const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/user`, {
+            const response = await axios.get('/api/user', {
                 headers: { Authorization: `Bearer ${token}` },
             });
             setUserData(response.data);
             setIsAuthenticated(true);
         } catch (error) {
             console.error('Failed to fetch user data:', error);
-            logout(); // Deconectează utilizatorul dacă datele nu pot fi obținute
+            logout();
         }
     };
 
-    const login = async (newToken, newData) => {
-        Cookies.set('accessToken', newToken, { expires: 7, secure: true, sameSite: 'Lax' }); // Asigură-te că setarea expirării este corectă
+    const login = async (newToken, newData, refreshToken) => {
+        Cookies.set('accessToken', newToken, { expires: 7, secure: true, sameSite: 'Lax' });
+        Cookies.set('refreshToken', refreshToken, { expires: 30, secure: true, sameSite: 'Lax' });
         setToken(newToken);
         setUserData(newData);
         setIsAuthenticated(true);
-        // Log pentru debugging
     };
 
     const logout = () => {
         Cookies.remove('accessToken');
+        Cookies.remove('refreshToken');
         setToken(null);
         setUserData(null);
         setIsAuthenticated(false);
-        // Opțional: redirecționează utilizatorul către pagina de login
     };
 
     return (
