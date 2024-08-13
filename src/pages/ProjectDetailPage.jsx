@@ -89,9 +89,13 @@ function ProjectDetailPage() {
                     <Link to={`/edit/${id}`} className="edit-button">Edit Project</Link>
                 )}
             </div>
-            
-            {/* Adăugarea secțiunii de comentarii */}
-            <Comments projectId={id} />
+            <div className="comments-section">
+            {project.filename ? (
+                    <Comments filename={project.filename} />
+                ) : (
+                    <div>No filename available for comments.</div>
+                )}
+            </div>
         </div>
     );
 }
