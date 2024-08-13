@@ -8,10 +8,11 @@ const AuthProvider = ({ children }) => {
     const [token, setToken] = useState(null);
     const [userData, setUserData] = useState(null);
     const [isAuthenticated, setIsAuthenticated] = useState(false);
-    const storedToken = Cookies.get('accessToken');
+    
     console.log(import.meta.env)
     useEffect(() => {
-        
+        const storedToken = Cookies.get('accessToken');
+        console.log('Stored Token:', storedToken);
         if (storedToken) {
             setToken(storedToken);
             fetchUserData(storedToken);
