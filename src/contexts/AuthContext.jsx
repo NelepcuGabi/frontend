@@ -2,8 +2,10 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 import Cookies from 'js-cookie';
 import axios from 'axios';
 
+// Create AuthContext
 const AuthContext = createContext();
 
+// AuthProvider Component
 const AuthProvider = ({ children }) => {
     const [token, setToken] = useState(null);
     const [userData, setUserData] = useState(null);
@@ -26,7 +28,11 @@ const AuthProvider = ({ children }) => {
             setIsAuthenticated(true);
         } catch (error) {
             console.error('Failed to fetch user data:', error);
-            logout();
+            // Handle token expiration or invalid token scenario
+            if (error.response?.status === 401) {
+                // Token might be expired or invalid
+                logout();
+            }
         }
     };
 
@@ -53,5 +59,7 @@ const AuthProvider = ({ children }) => {
     );
 };
 
+// Custom hook for using auth context
 export const useAuth = () => useContext(AuthContext);
+
 export { AuthProvider };
