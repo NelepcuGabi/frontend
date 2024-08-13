@@ -8,39 +8,36 @@ const AuthProvider = ({ children }) => {
     const [token, setToken] = useState(null);
     const [userData, setUserData] = useState(null);
     const [isAuthenticated, setIsAuthenticated] = useState(false);
-    
-    console.log(import.meta.env)
+
     useEffect(() => {
         const storedToken = Cookies.get('accessToken');
-        console.log('Stored Token:', storedToken);
+        console.log('Stored Token:', storedToken); // Verifică dacă token-ul este corect
+
         if (storedToken) {
             setToken(storedToken);
             fetchUserData(storedToken);
-            
         }
     }, []);
 
     const fetchUserData = async (token) => {
         try {
-            console.log
-            const response = await axios.get(`${import.meta.env.VITE_BACKEND_UR }/api/user`, {
+            const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/user`, {
                 headers: { Authorization: `Bearer ${token}` },
             });
             setUserData(response.data);
             setIsAuthenticated(true);
         } catch (error) {
             console.error('Failed to fetch user data:', error);
-            logout();
+            logout(); // Deconectează utilizatorul dacă datele nu pot fi obținute
         }
     };
 
     const login = async (newToken, newData) => {
-        Cookies.set('accessToken', newToken, { expires: 999999 });
+        Cookies.set('accessToken', newToken, { expires: 999999 }); // Asigură-te că setarea expirării este corectă
         setToken(newToken);
         setUserData(newData);
         setIsAuthenticated(true);
-        console.log(storedToken);
-        
+        console.log('Logged in with Token:', newToken); // Log pentru debugging
     };
 
     const logout = () => {
@@ -48,7 +45,7 @@ const AuthProvider = ({ children }) => {
         setToken(null);
         setUserData(null);
         setIsAuthenticated(false);
-        // Optionally, redirect the user to the login page
+        // Opțional: redirecționează utilizatorul către pagina de login
     };
 
     return (
