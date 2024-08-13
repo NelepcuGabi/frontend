@@ -82,10 +82,11 @@
 }
 
 .project-list {
-  display: flex; /* Use flexbox to layout items in a row */
-  overflow-x: auto; /* Enable horizontal scrolling if content overflows */
+  display: flex; /* Use flexbox to layout items */
+  flex-wrap: wrap; /* Allow items to wrap onto the next line */
   gap: 20px; /* Space between cards */
   padding: 20px 0; /* Padding to ensure space around the content */
+  margin-top: 200px; /* Adjust as needed to accommodate fixed elements */
 }
 
 .course-card {

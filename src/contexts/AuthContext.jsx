@@ -33,7 +33,7 @@ const AuthProvider = ({ children }) => {
     };
 
     const login = async (newToken, newData) => {
-        Cookies.set('accessToken', newToken, { expires: 999999 }); // Asigură-te că setarea expirării este corectă
+        Cookies.set('accessToken', newToken, { expires: 7, secure: true, sameSite: 'Lax' }); // Asigură-te că setarea expirării este corectă
         setToken(newToken);
         setUserData(newData);
         setIsAuthenticated(true);
