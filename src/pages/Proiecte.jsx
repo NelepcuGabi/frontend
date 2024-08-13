@@ -13,7 +13,7 @@ function UploadProject() {
 
   // Obține token-ul din cookies
   const token = Cookies.get('accessToken');
-  console.log('Token din cookies:', token); // Verifică dacă token-ul este corect
+ // Verifică dacă token-ul este corect
 
   useEffect(() => {
     if (!token) {
