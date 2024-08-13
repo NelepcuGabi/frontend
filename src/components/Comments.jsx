@@ -18,7 +18,7 @@ function Comments({ filename }) {
 
         async function fetchComments() {
             try {
-                const response = await fetch(`http://localhost:3000/api/comments/${filename}/comments`, {
+                const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/comments/${filename}/comments`, {
                     method: 'GET',
                     headers: {
                         'Authorization': `Bearer ${token}`,
@@ -43,7 +43,7 @@ function Comments({ filename }) {
         if (!newComment.trim()) return;
 
         try {
-            const response = await fetch(`http://localhost:3000/api/comments/${filename}/comments`, {
+            const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/comments/${filename}/comments`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -89,7 +89,7 @@ function Comments({ filename }) {
         if (!newComment.trim()) return;
 
         try {
-            const response = await fetch(`http://localhost:3000/api/comments/${editingCommentId}`, {
+            const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/comments/${editingCommentId}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -117,7 +117,7 @@ function Comments({ filename }) {
 
     const handleDelete = async (commentId) => {
         try {
-            const response = await fetch(`http://localhost:3000/api/comments/${commentId}`, {
+            const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/comments/${commentId}`, {
                 method: 'DELETE',
                 headers: {
                     'Authorization': `Bearer ${token}`,
@@ -141,7 +141,7 @@ function Comments({ filename }) {
         if (!newReply.trim()) return;
 
         try {
-            const response = await fetch(`http://localhost:3000/api/comments/${filename}/comments`, {
+            const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/comments/${filename}/comments`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
