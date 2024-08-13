@@ -84,11 +84,12 @@
 }
 
 .project-list {
-  display: flex; /* Use flexbox to layout items */
-  flex-wrap: wrap; /* Allow items to wrap onto the next line */
+  display: grid; /* Use grid layout */
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Responsive column sizing */
   gap: 20px; /* Space between cards */
   padding: 20px; /* Padding to ensure space around the content */
   margin-top: 150px; /* Space from the top to avoid overlap with fixed elements */
+  margin-bottom: 20px; /* Ensure there's space at the bottom of the list */
 }
 
 .course-card {
@@ -96,7 +97,7 @@
   border: 1px solid #ddd; /* Border for the cards */
   border-radius: 8px; /* Rounded corners */
   padding: 15px; /* Adjust padding for smaller cards */
-  width: 200px; /* Smaller width for the cards */
+  width: 100%; /* Full width of the card container */
   box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Shadows for visual effect */
   overflow: hidden; /* Hide overflow */
   text-align: center; /* Center align text */
