@@ -35,12 +35,12 @@ function UploadProject() {
         if (response.ok) {
           const userDetails = await response.json();
           setUser(userDetails);
-          console.log('User details:', userDetails);
+          console.log('Detalii utilizator:', userDetails);
         } else {
-          console.error('Failed to fetch user details', response.status, await response.text());
+          console.error('Nu s-au putut prelua datele utilizatorului', response.status, await response.text());
         }
       } catch (error) {
-        console.error('Error fetching user details:', error);
+        console.error('Eroare la incarcarea datelor utilizatorului:', error);
       }
     }
 
@@ -51,7 +51,7 @@ function UploadProject() {
     event.preventDefault();
 
     if (!file) {
-      alert('Please select a file to upload.');
+      alert('Te rog incarca un fisier.');
       return;
     }
 

@@ -50,12 +50,12 @@ function Edits() {
                 }),
             });
             if (!response.ok) {
-                throw new Error('Failed to update project. Status: ' + response.status);
+                throw new Error('Nu s-a putut realiza editarea: ' + response.status);
             }
             navigate(`/project/${id}`);
         } catch (error) {
             setError(error.message);
-            console.error('Error updating project:', error);
+            console.error('Eroare la actualizarea proiectului:', error);
         }
     };
 
@@ -73,7 +73,7 @@ function Edits() {
                 <h2>Edit Project</h2>
                 <form onSubmit={handleSubmit}>
                     <div className="form-group">
-                        <label htmlFor="title">Title:</label>
+                        <label htmlFor="title">Titlu:</label>
                         <input
                             type="text"
                             id="title"
@@ -82,7 +82,7 @@ function Edits() {
                         />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="description">Description:</label>
+                        <label htmlFor="description">Descriere:</label>
                         <textarea
                             id="description"
                             value={description}
@@ -90,17 +90,17 @@ function Edits() {
                         />
                     </div>
                     <div className="form-group">
-                        <button type="submit">Save Changes</button>
+                        <button type="submit">Salveaza</button>
                     </div>
                 </form>
                 <div className="project-metadata">
-                    <div>Created by: {project.metadata?.createdBy || 'Unknown'}</div>
+                    <div>Creat de: {project.metadata?.createdBy || 'Unknown'}</div>
                     {/* Afișează "Last modified by" doar dacă a fost modificat */}
                     {project.metadata?.modifiedBy && (
-                        <div>Last modified by: {project.metadata.modifiedBy}</div>
+                        <div>Modificat de: {project.metadata.modifiedBy}</div>
                     )}
                     {project.metadata?.modifiedOn && (
-                        <div>Last modified on: {new Date(project.metadata.modifiedOn).toLocaleString()}</div>
+                        <div>Ultima modificare pe: {new Date(project.metadata.modifiedOn).toLocaleString()}</div>
                     )}
                 </div>
             </div>

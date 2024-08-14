@@ -13,20 +13,20 @@ function ProjectDetailPage() {
     useEffect(() => {
         async function fetchProject() {
             if (!id) {
-                setError('No project ID provided');
+                setError('Niciun proiect disponibil');
                 return;
             }
 
             try {
                 const metadataResponse = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/files/files/${id}`);
                 if (!metadataResponse.ok) {
-                    throw new Error('Failed to fetch project metadata. Status: ' + metadataResponse.status);
+                    throw new Error('Nu s-au putut prelua datele fisierului: ' + metadataResponse.status);
                 }
                 const file = await metadataResponse.json();
                 setProject(file);
             } catch (error) {
                 setError(error.message);
-                console.error('Error fetching project:', error);
+                console.error('Eroare preluare proiecte:', error);
             }
         }
 
@@ -34,11 +34,11 @@ function ProjectDetailPage() {
     }, [id]);
 
     if (error) {
-        return <div>Error: {error}</div>;
+        return <div>Eroare: {error}</div>;
     }
 
     if (!project) {
-        return <div>Loading...</div>;
+        return <div>Incarcare...</div>;
     }
 
     const fileUrl = `${import.meta.env.VITE_BACKEND_URL}/api/files/${project.filename}`;
@@ -64,11 +64,11 @@ function ProjectDetailPage() {
             case 'application/vnd.openxmlformats-officedocument.wordprocessingml.document':
                 return (
                     <a href={fileUrl} target="_blank" rel="noopener noreferrer" className="view-button">
-                        View Document
+                        Vizualizati Docomunet
                     </a>
                 );
             default:
-                return <div>Preview not available for this file type.</div>;
+                return <div>Previzualizarea nu este disponiibila.</div>;
         }
     };
 
@@ -86,14 +86,14 @@ function ProjectDetailPage() {
                     {renderPreview()}
                 </div>
                 {isAuthenticated && (
-                    <Link to={`/edit/${id}`} className="edit-button">Edit Project</Link>
+                    <Link to={`/edit/${id}`} className="edit-button">Editare Proiect</Link>
                 )}
             </div>
             <div className="comments-section">
             {project.filename ? (
                     <Comments filename={project.filename} />
                 ) : (
-                    <div>No filename available for comments.</div>
+                    <div>Niciun fisier disponibil penru comentarii.</div>
                 )}
             </div>
         </div>

@@ -9,11 +9,11 @@ const ProjectCard = ({ id, title, description, imageUrl, author, difficulty, typ
         {imageUrl && <img src={imageUrl} alt={title} style={{ width: '100%', height: 'auto', borderRadius: '8px' }} />}
         <h3>{title}</h3>
         <p>{description}</p>
-        <small>Author: {author}</small>
+        <small>Autor: {author}</small>
         <br />
-        <small>Difficulty: {difficulty}</small>
+        <small>Dificultate: {difficulty}</small>
         <br />
-        <small>Type: {type}</small>
+        <small>Tip: {type}</small>
       </div>
     </Link>
   );
