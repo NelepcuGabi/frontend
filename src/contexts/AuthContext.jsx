@@ -6,17 +6,17 @@ const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
     const [token, setToken] = useState(null);
-    const [refreshToken, setRefreshToken] = useState(null);
+    
     const [userData, setUserData] = useState(null);
     const [isAuthenticated, setIsAuthenticated] = useState(false);
 
     useEffect(() => {
         const storedToken = Cookies.get('accessToken');
-        const storedRefreshToken = Cookies.get('refreshToken');
+        
 
-        if (storedToken && storedRefreshToken) {
+        if (storedToken) {
             setToken(storedToken);
-            setRefreshToken(storedRefreshToken);
+            
             fetchUserData(storedToken);
         }
     }, []);
@@ -31,44 +31,29 @@ const AuthProvider = ({ children }) => {
         } catch (error) {
             console.error('Failed to fetch user data:', error);
             if (error.response?.status === 401) {
-                await refreshTokenFunction(); // Attempt to refresh the token
+                 // Attempt to refresh the token
             } else {
                 logout(); // Log out if unable to refresh
             }
         }
     };
 
-    const refreshTokenFunction = async () => {
-        try {
-            const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/auth/refresh`, {
-                refreshToken
-            });
-            const { newToken, newRefreshToken } = response.data;
-            Cookies.set('accessToken', newToken, { expires: 7, secure: true, sameSite: 'Lax' });
-            Cookies.set('refreshToken', newRefreshToken, { expires: 30, secure: true, sameSite: 'Lax' });
-            setToken(newToken);
-            setRefreshToken(newRefreshToken);
-            fetchUserData(newToken); // Retry fetching user data
-        } catch (error) {
-            console.error('Failed to refresh token:', error);
-            logout(); // Log out if refresh fails
-        }
-    };
+  
 
-    const login = async (newToken, newData, newRefreshToken) => {
+    const login = async (newToken, newData) => {
         Cookies.set('accessToken', newToken, { expires: 7, secure: true, sameSite: 'Lax' });
-        Cookies.set('refreshToken', newRefreshToken, { expires: 30, secure: true, sameSite: 'Lax' });
+        
         setToken(newToken);
-        setRefreshToken(newRefreshToken);
+        
         setUserData(newData);
         setIsAuthenticated(true);
     };
 
     const logout = () => {
         Cookies.remove('accessToken');
-        Cookies.remove('refreshToken');
+        
         setToken(null);
-        setRefreshToken(null);
+       
         setUserData(null);
         setIsAuthenticated(false);
         // Optional: Redirect user to the login page
