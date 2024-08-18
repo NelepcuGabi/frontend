@@ -1,6 +1,6 @@
 /* ProjectDetailPage.css */
 .project-detail-page {
-  max-width: 800px;
+  max-width: 1200px; /* Lărgim containerul pentru a avea mai mult spațiu pentru două coloane */
   margin: 0 auto;
   padding: 20px;
   border: 1px solid #ccc;
@@ -11,11 +11,13 @@
 
 .project-content {
   display: flex;
-  flex-direction: column;
+  flex-direction: row; /* Modificăm direcția la orizontală pentru două coloane */
+  gap: 20px; /* Spațiu între coloane */
 }
 
 .project-metadata {
   margin-bottom: 20px;
+  flex: 1; /* Face metadata să ocupe restul spațiului din coloana din dreapta */
 }
 
 .project-metadata h2 {
@@ -35,6 +37,7 @@
 }
 
 .project-file {
+  flex: 1; /* Setează lățimea pentru containerul de fișiere */
   margin-top: 20px;
 }
 
@@ -50,6 +53,7 @@
 
 .pdf-preview {
   height: 700px; /* Ajustați înălțimea pentru previzualizări PDF */
+  width: 100%; /* Se asigură că PDF-ul ocupă întreaga lățime a coloanei */
 }
 
 .image-preview {
@@ -57,16 +61,19 @@
   max-height: 500px;
 }
 
-.view-button {
+.view-button, .edit-button {
   display: inline-block;
-  margin-top: 20px;
   padding: 10px 20px;
-  background-color: #007bff;
   color: #fff;
   text-align: center;
   text-decoration: none;
   border-radius: 4px;
   transition: background-color 0.3s;
+  margin-right: 10px; /* Spațiu între butoane */
+}
+
+.view-button {
+  background-color: #007bff;
 }
 
 .view-button:hover {
@@ -74,15 +81,7 @@
 }
 
 .edit-button {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 10px 20px;
   background-color: #28a745;
-  color: #fff;
-  text-align: center;
-  text-decoration: none;
-  border-radius: 4px;
-  transition: background-color 0.3s;
 }
 
 .edit-button:hover {
@@ -93,6 +92,7 @@
   margin-top: 20px;
   padding: 10px;
   border-top: 1px solid #ddd;
+  flex: 1; /* Se asigură că secțiunea de comentarii ocupă restul spațiului din coloana din dreapta */
 }
 
 .comments-section h3 {
