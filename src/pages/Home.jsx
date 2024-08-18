@@ -1,5 +1,6 @@
 import React from 'react';
 import '../styles/Home.css';
+import SlideShow from '../components/SlideShow'
 
 function Home() {
   return (
@@ -29,6 +30,7 @@ function Home() {
           </p>
         </div>
       </section>
+      <SlideShow></SlideShow>
       <footer className="footer">
         <p>&copy; 2024 CodeNetHub. Toate drepturile rezervate.</p>
       </footer>
