@@ -176,7 +176,7 @@ function Comments({ filename }) {
 
     return (
         <div className="comments-section">
-            <h3>Comments</h3>
+            <h3>Comentarii</h3>
             <ul>
                 {comments.map((comment) => (
                     <li key={comment._id}>
