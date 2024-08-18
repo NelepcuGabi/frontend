@@ -84,7 +84,7 @@
 }
 
 .project-list {
-  display: grid;
+  display: flex;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Smaller min-width for narrower cards */
   gap: 20px;
   padding: 20px;
