@@ -1,7 +1,6 @@
-/* ProjectDetailPage.css */
 .project-detail-page {
-  max-width: 1200px; /* Lărgim containerul pentru a avea mai mult spațiu pentru două coloane */
-  margin: 0 auto;
+  max-width: 1200px; /* Lărgit pentru a acomoda ambele coloane */
+  margin: 80px auto 0 auto; /* Adaugă margine de sus pentru a coborî sub navbar */
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 8px;
@@ -11,13 +10,13 @@
 
 .project-content {
   display: flex;
-  flex-direction: row; /* Modificăm direcția la orizontală pentru două coloane */
-  gap: 20px; /* Spațiu între coloane */
+  flex-direction: row; /* Setează layout-ul în rând */
+  gap: 20px; /* Spațiu între PDF și secțiunea de comentarii */
 }
 
 .project-metadata {
   margin-bottom: 20px;
-  flex: 1; /* Face metadata să ocupe restul spațiului din coloana din dreapta */
+  flex: 1; /* Alocă spațiul pentru a se întinde pe toată coloana */
 }
 
 .project-metadata h2 {
@@ -36,9 +35,13 @@
   color: #666;
 }
 
+/* Mutați descrierea sub dificultate */
+.project-description {
+  margin-top: 20px; /* Adaugă spațiu între dificultate și descriere */
+}
+
 .project-file {
-  flex: 1; /* Setează lățimea pentru containerul de fișiere */
-  margin-top: 20px;
+  flex: 2; /* Asigură ca previzualizarea PDF să ocupe mai mult spațiu */
 }
 
 .preview-container {
@@ -53,7 +56,6 @@
 
 .pdf-preview {
   height: 700px; /* Ajustați înălțimea pentru previzualizări PDF */
-  width: 100%; /* Se asigură că PDF-ul ocupă întreaga lățime a coloanei */
 }
 
 .image-preview {
@@ -61,38 +63,11 @@
   max-height: 500px;
 }
 
-.view-button, .edit-button {
-  display: inline-block;
-  padding: 10px 20px;
-  color: #fff;
-  text-align: center;
-  text-decoration: none;
-  border-radius: 4px;
-  transition: background-color 0.3s;
-  margin-right: 10px; /* Spațiu între butoane */
-}
-
-.view-button {
-  background-color: #007bff;
-}
-
-.view-button:hover {
-  background-color: #0056b3;
-}
-
-.edit-button {
-  background-color: #28a745;
-}
-
-.edit-button:hover {
-  background-color: #218838;
-}
-
 .comments-section {
+  flex: 1; /* Asigură că secțiunea de comentarii ocupă o parte mai mică a spațiului */
   margin-top: 20px;
   padding: 10px;
-  border-top: 1px solid #ddd;
-  flex: 1; /* Se asigură că secțiunea de comentarii ocupă restul spațiului din coloana din dreapta */
+  border-left: 1px solid #ddd; /* Linie de separare între PDF și comentarii */
 }
 
 .comments-section h3 {
