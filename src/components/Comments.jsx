@@ -192,7 +192,7 @@ function Comments({ filename }) {
                             </>
                         )}
                         <button onClick={() => setReplyingToCommentId(comment._id)}>
-                            Reply
+                            Raspundeti
                         </button>
 
                         {/* Display replies */}
