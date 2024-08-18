@@ -1,6 +1,6 @@
 .project-detail-page {
   max-width: 1200px auto 0 auto; /* Lărgit pentru a acomoda ambele coloane */
-  margin: 1200px auto 0 auto; /* Adaugă margine de sus pentru a coborî sub navbar */
+  margin: 600px auto 0 auto; /* Adaugă margine de sus pentru a coborî sub navbar */
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 8px;
