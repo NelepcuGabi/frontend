@@ -76,11 +76,11 @@ function ProjectDetailPage() {
         <div className="project-detail-page">
             <div className="project-content">
                 <div className="project-metadata">
-                    <h2>{project.metadata?.title || 'No title available'}</h2>
-                    <p>{project.metadata?.description || 'No description available'}</p>
-                    <div>Author: {project.metadata?.name || 'No author information'}</div>
-                    <div>Type: {project.metadata?.type || 'No type information'}</div>
-                    <div>Difficulty: {project.metadata?.difficulty || 'No difficulty information'}</div>
+                    <h2>Titlu {project.metadata?.title || 'No title available'}</h2>
+                    <div>Autor: {project.metadata?.name || 'No author information'}</div>
+                    <div>Tip: {project.metadata?.type || 'No type information'}</div>
+                    <div>Dificultate: {project.metadata?.difficulty || 'No difficulty information'}</div>
+                    <p>Descriere: {project.metadata?.description || 'No description available'}</p>
                 </div>
                 <div className="project-file">
                     {renderPreview()}
