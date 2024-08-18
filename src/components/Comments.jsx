@@ -184,10 +184,10 @@ function Comments({ filename }) {
                         {userData && userData._id === comment.userId && (
                             <>
                                 <button onClick={() => handleEditClick(comment._id, comment.content)}>
-                                    Edit
+                                    Editare
                                 </button>
                                 <button onClick={() => handleDelete(comment._id)}>
-                                    Delete
+                                   Stergere
                                 </button>
                             </>
                         )}
@@ -212,9 +212,9 @@ function Comments({ filename }) {
                                 <textarea
                                     value={newReply}
                                     onChange={(e) => setNewReply(e.target.value)}
-                                    placeholder="Write a reply..."
+                                    placeholder="Raspundeti..."
                                 />
-                                <button type="submit">Post Reply</button>
+                                <button type="submit">Raspundeti</button>
                             </form>
                         )}
                     </li>
@@ -225,9 +225,9 @@ function Comments({ filename }) {
                 <textarea
                     value={newComment}
                     onChange={(e) => setNewComment(e.target.value)}
-                    placeholder="Write a comment..."
+                    placeholder="Scrie un comentariu..."
                 />
-                <button type="submit">{editingCommentId ? 'Save Edit' : 'Post Comment'}</button>
+                <button type="submit">{editingCommentId ? 'Salveaza' : 'Posteaza'}</button>
             </form>
         </div>
     );
