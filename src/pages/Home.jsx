@@ -30,7 +30,7 @@ function Home() {
           </p>
         </div>
       </section>
-      <SlideShow></SlideShow>
+      
       <footer className="footer">
         <p>&copy; 2024 CodeNetHub. Toate drepturile rezervate.</p>
       </footer>
