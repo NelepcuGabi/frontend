@@ -9,8 +9,8 @@
 }
 
 .search-bar {
-  position: fixed; /* Fixes the search bar to the viewport */
-  top: 20px; /* Position from the top of the viewport */
+  position: absolute; /* Fixes the search bar to the viewport */
+  top: 17%; /* Position from the top of the viewport */
   left: 50%; /* Centers the search bar horizontally */
   transform: translateX(-50%); /* Centers the element by adjusting its horizontal position */
   display: flex;
@@ -49,9 +49,9 @@
 }
 
 .filters {
-  position: fixed; /* Fixes the filters to the viewport */
-  top: 90px; /* Position from the top of the viewport, adjusted to be below the search bar */
-  left: 50%; /* Centers the filters horizontally */
+  position: absolute; /* Fixes the filters to the viewport */
+  top: 26%; /* Position from the top of the viewport, adjusted to be below the search bar */
+  left: 36%; /* Centers the filters horizontally */
   transform: translateX(-50%); /* Centers the element by adjusting its horizontal position */
   display: flex;
   gap: 20px; /* Space between filters */
@@ -84,14 +84,14 @@
 }
 
 .project-list {
-  display: flex;
-  flex-wrap: wrap;
-  grid-template-columns: repeat(auto-fit, 200px); /* Smaller min-width for narrower cards */
+  position: absolute; 
+  display: grid;
+  grid-template-columns: repeat(5,  1fr); /* Smaller min-width for narrower cards */
   gap: 20px;
   padding: 20px;
-  margin-top: 150px;
-  margin-bottom: 20px;
-  
+  top: 45%;
+  left: 15%;
+  right:15%;
 }
 
 /* Course Card */
