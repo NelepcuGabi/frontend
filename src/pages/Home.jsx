@@ -1,8 +1,9 @@
 import React from 'react';
 import Slider from 'react-slick';
-import '../styles/Home.css';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import '../styles/Home.css';
+
 function Home() {
   const teamMembers = [
     { name: 'Ion Popescu', role: 'CEO' },
@@ -69,9 +70,11 @@ function Home() {
         <h2>Echipa noastra</h2>
         <Slider {...settings}>
           {teamMembers.map((member, index) => (
-            <div key={index} className="team-member">
-              <h3>{member.name}</h3>
-              <p>{member.role}</p>
+            <div key={index} className="team-member-card">
+              <div className="card-content">
+                <h3>{member.name}</h3>
+                <p>{member.role}</p>
+              </div>
             </div>
           ))}
         </Slider>
