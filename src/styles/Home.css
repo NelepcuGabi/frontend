@@ -18,7 +18,7 @@ a {
   color: inherit;
 }
 .hero-section {
-  max-width: 1200px ;
+  max-width: 1200px auto 0 auto;
   margin: 250px auto 0 auto;
   background-color: #f8f9fa;
   padding: 50px 20px;
