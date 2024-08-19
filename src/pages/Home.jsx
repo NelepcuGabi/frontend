@@ -69,7 +69,7 @@ function Home() {
       {/* Hero Section */}
       <section className="hero-section">
         <h1>Bine ati venit pe CodeNetHub</h1>
-        <p>Explorati o multime de cursuri pentru a va imbunatati cunostintele</p>
+        
       </section>
       
       {/* Hub Description Section */}

@@ -68,7 +68,7 @@ a {
 }
 
 .team-member-card {
-   /* Fundal alb semi-transparent pentru carduri */
+  background-color: #0e73a9;/* Fundal alb semi-transparent pentru carduri */
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 20px;
