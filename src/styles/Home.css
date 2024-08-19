@@ -69,3 +69,6 @@ a {
 .slick-dots li.slick-active button:before {
   color: #007bff;
 }
+.slick-arrow{
+  color: black;
+}
