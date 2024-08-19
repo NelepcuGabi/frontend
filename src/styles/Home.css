@@ -118,3 +118,7 @@ a {
   top: 50%;
   transform: translateY(-50%) rotate(45deg); /* Poziția și rotația pentru săgeata dreaptă */
 }
+.footer{
+  max-width: 1200px auto 0 auto; /* Lărgit pentru a acomoda ambele coloane */
+  margin: 300px auto 0 auto;
+}
