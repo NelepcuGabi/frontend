@@ -23,7 +23,7 @@ a {
 /* Hero Section */
 .hero-section {
   max-width: 1200px auto 0 auto; /* Lărgit pentru a acomoda ambele coloane */
-  margin: 300px auto 0 auto;
+  margin: 250px auto 0 auto;
   background-color: #f8f9fa;
   padding: 50px 20px;
   text-align: center;
@@ -41,51 +41,13 @@ a {
   margin-bottom: 20px;
 }
 
-.search-bar {
-  padding: 10px;
-  font-size: 1rem;
-  width: 80%;
-  max-width: 400px;
-  border: none;
-  border-radius: 5px;
-  margin-top: 20px;
-}
 
-/* Courses Section */
-.courses-section {
-  padding: 50px 20px;
-  background-color: #f0f0f0;
-  text-align: center;
-}
-
-.courses-section h2 {
-  font-size: 2rem;
-  margin-bottom: 30px;
-}
-
-.courses-container {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-}
-
-.course-card {
-  background: white;
-  width: 300px;
-  padding: 20px;
-  margin: 10px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s;
-}
-
-.course-card:hover {
-  transform: translateY(-10px);
-}
 
 .hub-description-section {
   display: flex;
   justify-content: center;
+  max-width: 1200px auto 0 auto; /* Lărgit pentru a acomoda ambele coloane */
+  margin: 600px auto 0 auto;
   align-items: center;
   padding: 50px 20px;
   background-color: #ffffff; /* White background for contrast */
