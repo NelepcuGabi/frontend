@@ -8,8 +8,8 @@ function Home() {
   const teamMembers = [
     { name: 'Luiza David', role: 'Programator' },
     { name: 'Mihai Ciungu', role: 'Programator'},
-    { name: 'Ionut Volintiru', role: 'Developer' },
-    { name: 'Gabriel Nelepcu', role: 'Developer' },
+    { name: 'Ionut Volintiru', role: 'Web Developer' },
+    { name: 'Gabriel Nelepcu', role: 'Web Developer' },
     { name: 'Ana Georgescu', role: 'Programator' },
     { name: 'Vlad Moise', role: 'Retelistica' },
     { name: 'Stan Rareș-Gabriel', role: 'Programator' },
