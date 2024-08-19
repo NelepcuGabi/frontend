@@ -6,21 +6,29 @@ import '../styles/Home.css';
 
 function Home() {
   const teamMembers = [
-    { name: 'Luiza David', role: 'Programator' },
-    { name: 'Mihai Ciungu', role: 'Programator'},
-    { name: 'Ionut Volintiru', role: 'Web Developer' },
-    { name: 'Gabriel Nelepcu', role: 'Web Developer' },
-    { name: 'Ana Georgescu', role: 'Programator' },
+    { name: 'David Luiza', role: 'Programator' },
+    { name: 'Ciungu Mihai', role: 'Programator'},
+    { name: 'Volintiru Silviu-Ionuț', role: 'Web Developer' },
+    { name: 'Nelepcu Gabriel', role: 'Web Developer' },
+    { name: 'Georgescu Ana', role: 'Programator' },
+    { name: 'Stan Rareș-Gabriel', role: 'Programator' },
+    { name: 'Drăghicescu Adelina-Mihaela', role: 'Programator' },
+    { name: 'Vrânceanu Elena-Andra', role: 'Programator' },
+    { name: 'Ghițău Diana', role: 'Programator' },
+    { name: 'Ozunu Mihai', role: 'Programator' },
+    { name: 'Stoica Nicolae-Răzvan', role: 'Programator' },
+    { name: 'Covaliu Ioana-Iuliana', role: 'Programator' },
     { name: 'Moise Mihai-Vlad', role: 'Retelistica' },
     { name: 'Marin Florina-Denisa', role: 'Retelistica' },
     { name: 'Barbu Andreea-Maria', role: 'Retelistica' },
-    { name: 'Serban Valentina-Andreea', role: 'Retelistica' },
+    { name: 'Șerban Valentina-Andreea', role: 'Retelistica' },
     { name: 'Ionescu Mihai-Cristian', role: 'Retelistica' },
     { name: 'Țipluică Maria-Anisia', role: 'Retelistica' },
-    { name: 'Guramba Elena- Georgiana', role: 'Retelistica' },
-    { name: 'Stan Rareș-Gabriel', role: 'Programator' },
+    { name: 'Guramba Elena-Georgiana', role: 'Retelistica' },
+    { name: 'Deacu Cristian', role: 'Coordonator' },
     
-      
+    
+
     
 
  

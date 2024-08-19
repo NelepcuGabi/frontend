@@ -96,8 +96,8 @@
 
 /* Course Card */
 .course-card {
-  background-color: #000000;
-  border: 1px solid #ddd;
+  background-color: #f3bb2d;
+  border: 1px solid #dddddd;
   border-radius: 8px;
   padding: 10px; /* Reduced padding for smaller cards */
   max-width: 180px; /* Smaller max-width for cards */
