@@ -7,8 +7,10 @@
   }
   
   .profile-card {
+    max-width: 1200px;
+     margin: 100px auto 0 auto;
     width: 100%;
-    max-width: 400px auto 0 auto; /* Adjust as necessary */ 
+   /* Adjust as necessary */ 
     top: 20%;
   }
   
