@@ -18,10 +18,8 @@ function Home() {
           <h2>Despre CodeNetHub</h2>
           <p>
             CodeNetHub este platforma ta dedicata pentru invatarea si perfectionarea cunostintelor
-            in programare si tehnologia informatiei. Oferim o gama variata de cursuri si resurse
-            care te vor ajuta sa iti dezvolti abilitatile si sa ramai la curent cu cele mai noi
-            tendinte din domeniu. Fie ca esti incepator sau profesionist, vei gasi aici tot ce ai
-            nevoie pentru a-ti atinge obiectivele.
+            in programare si retelistica. Aici iti poti incarca proiectele personale, sa primesti feedback 
+            si chiar sa contribui la alte proiecte ale colegilor tai. 
           </p>
           <p>
             Alatura-te comunitatii noastre si incepe calatoria ta de invatare chiar astazi. Cu resurse
@@ -32,7 +30,9 @@ function Home() {
       </section>
       
       <footer className="footer">
-        <p>&copy; 2024 CodeNetHub. Toate drepturile rezervate.</p>
+        <p>&copy; 2024 CodeNetHub. Toate drepturile rezervate.
+          Powered by: Telecom Academy
+        </p>
       </footer>
       {/* Footer */}
     </div>
