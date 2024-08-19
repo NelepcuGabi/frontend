@@ -8,8 +8,8 @@
   
   .profile-card {
     width: 100%;
-    max-width: 400px; /* Adjust as necessary */ 
-    top: 5%;
+    max-width: 400px auto 0 auto; /* Adjust as necessary */ 
+    top: 20%;
   }
   
   .profile-content {
@@ -36,7 +36,7 @@
   }
 
   .projects-profile-card {
-    background-color: #787777;
+    background-color: #f0f0f0;
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 10px; /* Reduced padding for smaller cards */
