@@ -22,7 +22,7 @@
 .project-metadata h2 {
   margin-bottom: 10px;
   font-size: 24px;
-  color: #333;
+  color: #000000;
 }
 
 .project-metadata p {
@@ -32,7 +32,7 @@
 
 .project-metadata div {
   margin-bottom: 5px;
-  color: #666;
+  color: #000000;
 }
 
 /* Mutați descrierea sub dificultate */
@@ -64,6 +64,7 @@
 }
 
 .comments-section {
+  color: #000000;
   flex: 1; /* Asigură că secțiunea de comentarii ocupă o parte mai mică a spațiului */
   margin-top: 20px;
   padding: 10px;
