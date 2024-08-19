@@ -90,10 +90,4 @@ a {
 }
 
 /* Adaugă o săgeată implicită */
-.slick-prev:before {
-  content: '←'; /* Săgeată stânga */
-}
 
-.slick-next:before {
-  content: '→'; /* Săgeată dreapta */
-}
