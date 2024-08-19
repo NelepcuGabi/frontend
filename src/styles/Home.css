@@ -1,12 +1,11 @@
-/* Hero Section */
+/* General Styles */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background: linear-gradient(to left, #9a330d, #010916);
-  color: white;
-  
+  background: linear-gradient(to left, #9a330d, #010916); /* Gradient de fundal */
+  color: white; /* Culoare text alb pe fundalul gradient */
 }
 
 h1, h2, h3, p {
@@ -18,13 +17,13 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
+/* Hero Section */
 .hero-section {
-  max-width: 1200px auto 0 auto; /* Lărgit pentru a acomoda ambele coloane */
-  margin: 600px auto 0 auto;
-  
+  max-width: 1200px;
+  margin: 100px auto 0 auto; /* Ajustează distanța de sus pentru a lăsa mai mult spațiu */
   padding: 50px 20px;
   text-align: center;
-  
   color: white;
 }
 
@@ -36,21 +35,40 @@ a {
   margin: 60px auto;
   align-items: center;
   padding: 50px 20px;
-  background-color: #ffffff;
+  background: rgba(0, 0, 0, 0.5); /* Fundal semi-transparent pentru contrast */
+  color: white; /* Text alb pe fundalul semi-transparent */
   width: 100%;
+}
+
+.hub-description-content {
+  max-width: 1200px;
+  width: 100%;
+}
+
+.hub-description-section h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.hub-description-section p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
 }
 
 /* Team Section */
 .hub-people {
   padding: 50px 0;
   text-align: center;
-  background-color: #ffffff;
+  background: rgba(0, 0, 0, 0.5); /* Fundal semi-transparent pentru contrast */
+  color: white; /* Text alb */
   max-width: 1200px;
   margin: 0 auto; /* Centrare */
 }
 
 .team-member-card {
-  background-color: #fff;
+  background-color: #fff; /* Fundal alb pentru carduri */
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 20px;
@@ -64,12 +82,13 @@ a {
 }
 
 .slick-dots li button:before {
-  color: #333;
+  color: #333; /* Culoare punctelor de navigare */
 }
 
 .slick-dots li.slick-active button:before {
-  color: #007bff;
+  color: #007bff; /* Culoare punctelor active */
 }
+
 /* Ascunde săgețile implicite */
 .slick-prev:before, .slick-next:before {
   display: none; /* Ascunde textul săgeților implicite */
@@ -119,7 +138,13 @@ a {
   top: 50%;
   transform: translateY(-50%) rotate(45deg); /* Poziția și rotația pentru săgeata dreaptă */
 }
-.footer{
-  max-width: 1200px auto 0 auto; /* Lărgit pentru a acomoda ambele coloane */
-  margin: 100px auto 0 auto;
+
+/* Footer */
+.footer {
+  max-width: 1200px;
+  margin: 100px auto 0 auto; /* Ajustează distanța de sus */
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.7); /* Fundal semi-transparent pentru contrast */
+  color: white; /* Text alb */
+  text-align: center;
 }
