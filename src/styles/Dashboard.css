@@ -4,6 +4,7 @@
   align-items: center;
   padding: 20px;
   gap: 20px;
+  background-color: #0e73a9;
 }
 
 .profile-card {
@@ -36,7 +37,7 @@
 }
 
 .projects-profile-card {
-  background-color: #0e73a9;
+  
   border: 1px solid #ddd;
   border-radius: 8px;
   padding: 10px; /* Reduced padding for smaller cards */
