@@ -1,6 +1,8 @@
 /* Proiecte.css */
 .upload-project-container {
-  max-width: 600px;
+  max-width: 1200px;
+     margin: 100px auto 0 auto;
+  
   margin: 0 auto;
   padding: 20px;
   border: 1px solid #ccc;
