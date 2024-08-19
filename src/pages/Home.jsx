@@ -1,15 +1,49 @@
 import React from 'react';
+import Slider from 'react-slick';
 import '../styles/Home.css';
 
-
 function Home() {
+  const teamMembers = [
+    { name: 'Ion Popescu', role: 'CEO' },
+    { name: 'Maria Ionescu', role: 'CTO' },
+    { name: 'George Enescu', role: 'Developer' },
+    { name: 'Ana Georgescu', role: 'Designer' },
+    { name: 'Vlad Alexandrescu', role: 'Marketing Specialist' }
+  ];
+
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          initialSlide: 1
+        }
+      }
+    ]
+  };
+
   return (
     <div>
       {/* Hero Section */}
       <section className="hero-section">
         <h1>Bine ati venit pe CodeNetHub</h1>
         <p>Explorati o multime de cursuri pentru a va imbunatati cunostintele</p>
-       
       </section>
       
       {/* Hub Description Section */}
@@ -29,12 +63,24 @@ function Home() {
         </div>
       </section>
       
-      <footer className="footer">
-        <p>&copy; 2024 CodeNetHub. Toate drepturile rezervate.
-          Powered by: Telecom Academy
-        </p>
-      </footer>
+      {/* Team Section */}
+      <section className="hub-people">
+        <h2>Echipa noastra</h2>
+        <Slider {...settings}>
+          {teamMembers.map((member, index) => (
+            <div key={index} className="team-member">
+              <h3>{member.name}</h3>
+              <p>{member.role}</p>
+            </div>
+          ))}
+        </Slider>
+      </section>
+      
       {/* Footer */}
+      <footer className="footer">
+        <p>&copy; 2024 CodeNetHub. Toate drepturile rezervate.</p>
+        <p>Powered by: Telecom Academy</p>
+      </footer>
     </div>
   );
 }
