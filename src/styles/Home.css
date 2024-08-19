@@ -47,7 +47,7 @@ a {
   display: flex;
   justify-content: center;
   max-width: 1200px auto 0 auto; /* Lărgit pentru a acomoda ambele coloane */
-  margin: 600px auto 0 auto;
+  margin: 60px auto 0 auto;
   align-items: center;
   padding: 50px 20px;
   background-color: #ffffff; /* White background for contrast */
