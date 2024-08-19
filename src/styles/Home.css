@@ -69,6 +69,24 @@ a {
 .slick-dots li.slick-active button:before {
   color: #007bff;
 }
-.slick-arrow{
+.slick-prev, .slick-next {
+  font-size: 24px;
   color: black;
+  width: 40px;
+  height: 40px;
+  z-index: 1;
+}
+
+.slick-prev:before, .slick-next:before {
+  font-family: 'slick';
+  font-size: 24px;
+  color: black;
+}
+
+.slick-prev {
+  left: 10px;
+}
+
+.slick-next {
+  right: 10px;
 }
