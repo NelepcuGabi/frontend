@@ -4,7 +4,7 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background: linear-gradient(to left, #350d9a, #2760ba); /* Gradient de fundal */
+  background: linear-gradient(to left, #e5e2ed, #1394d4); /* Gradient de fundal */
   color: white; /* Text alb pe fundalul gradient */
 }
 
