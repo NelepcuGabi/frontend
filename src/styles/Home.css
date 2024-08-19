@@ -23,7 +23,7 @@ a {
 /* Hero Section */
 .hero-section {
   max-width: 1200px auto 0 auto; /* Lărgit pentru a acomoda ambele coloane */
-  margin: 600px auto 0 auto;
+  margin: 300px auto 0 auto;
   background-color: #f8f9fa;
   padding: 50px 20px;
   text-align: center;
