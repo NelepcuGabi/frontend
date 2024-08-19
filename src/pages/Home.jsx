@@ -6,11 +6,13 @@ import '../styles/Home.css';
 
 function Home() {
   const teamMembers = [
-    { name: 'Ion Popescu', role: 'CEO' },
-    { name: 'Maria Ionescu', role: 'CTO' },
-    { name: 'George Enescu', role: 'Developer' },
-    { name: 'Ana Georgescu', role: 'Designer' },
-    { name: 'Vlad Alexandrescu', role: 'Marketing Specialist' }
+    { name: 'Luiza David', role: 'Programator' },
+    { name: 'Mihai Ciungu', role: 'Programator'},
+    { name: 'Ionut Volintiru', role: 'Developer' },
+    { name: 'Gabriel Nelepcu', role: 'Developer' },
+    { name: 'Ana Georgescu', role: 'Programator' },
+    { name: 'Vlad Moise', role: 'Retelistica' },
+    { name: 'Stan Rareș-Gabriel', role: 'Programator' },
   ];
 
   const settings = {
