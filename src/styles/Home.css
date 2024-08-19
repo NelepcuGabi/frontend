@@ -98,7 +98,7 @@ a {
 .slick-prev, .slick-next {
   width: 30px; /* Lățimea săgeților */
   height: 30px; /* Înălțimea săgeților */
-  background-color: rgb(0, 0, 0); /* Fundalul săgeților */
+  /* Fundalul săgeților */
   border-radius: 50%; /* Forma rotundă a săgeților */
   display: flex;
   align-items: center;

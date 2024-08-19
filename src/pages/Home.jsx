@@ -11,8 +11,22 @@ function Home() {
     { name: 'Ionut Volintiru', role: 'Web Developer' },
     { name: 'Gabriel Nelepcu', role: 'Web Developer' },
     { name: 'Ana Georgescu', role: 'Programator' },
-    { name: 'Vlad Moise', role: 'Retelistica' },
+    { name: 'Moise Mihai-Vlad', role: 'Retelistica' },
+    { name: 'Marin Florina-Denisa', role: 'Retelistica' },
+    { name: 'Barbu Andreea-Maria', role: 'Retelistica' },
+    { name: 'Serban Valentina-Andreea', role: 'Retelistica' },
+    { name: 'Ionescu Mihai-Cristian', role: 'Retelistica' },
+    { name: 'Țipluică Maria-Anisia', role: 'Retelistica' },
+    { name: 'Guramba Elena- Georgiana', role: 'Retelistica' },
     { name: 'Stan Rareș-Gabriel', role: 'Programator' },
+    
+      
+    
+
+ 
+
+
+
   ];
 
   const settings = {
