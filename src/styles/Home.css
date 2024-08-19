@@ -5,7 +5,7 @@ body {
   padding: 0;
   box-sizing: border-box;
   background: linear-gradient(to left, #9a330d, #010916); /* Gradient de fundal */
-  color: white; /* Culoare text alb pe fundalul gradient */
+  color: white; /* Text alb pe fundalul gradient */
 }
 
 h1, h2, h3, p {
@@ -15,16 +15,16 @@ h1, h2, h3, p {
 
 a {
   text-decoration: none;
-  color: inherit;
+  color: inherit; /* Asigură că link-urile nu schimbă culoarea textului */
 }
 
 /* Hero Section */
 .hero-section {
   max-width: 1200px;
-  margin: 100px auto 0 auto; /* Ajustează distanța de sus pentru a lăsa mai mult spațiu */
+  margin: 100px auto 0 auto; /* Ajustează distanța de sus */
   padding: 50px 20px;
   text-align: center;
-  color: white;
+  color: white; /* Text alb pe fundalul gradient */
 }
 
 /* Hub Description Section */
@@ -35,8 +35,8 @@ a {
   margin: 60px auto;
   align-items: center;
   padding: 50px 20px;
-  background: rgba(0, 0, 0, 0.5); /* Fundal semi-transparent pentru contrast */
-  color: white; /* Text alb pe fundalul semi-transparent */
+  background: inherit; /* Aplică fundalul gradient de la body */
+  color: white; /* Text alb pe fundalul gradient */
   width: 100%;
 }
 
@@ -61,14 +61,14 @@ a {
 .hub-people {
   padding: 50px 0;
   text-align: center;
-  background: rgba(0, 0, 0, 0.5); /* Fundal semi-transparent pentru contrast */
-  color: white; /* Text alb */
+  background: inherit; /* Aplică fundalul gradient de la body */
+  color: white; /* Text alb pe fundalul gradient */
   max-width: 1200px;
   margin: 0 auto; /* Centrare */
 }
 
 .team-member-card {
-  background-color: #fff; /* Fundal alb pentru carduri */
+  background-color: rgba(255, 255, 255, 0.9); /* Fundal alb semi-transparent pentru carduri */
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 20px;
@@ -144,7 +144,7 @@ a {
   max-width: 1200px;
   margin: 100px auto 0 auto; /* Ajustează distanța de sus */
   padding: 20px;
-  background-color: rgba(0, 0, 0, 0.7); /* Fundal semi-transparent pentru contrast */
-  color: white; /* Text alb */
+  background: inherit; /* Aplică fundalul gradient de la body */
+  color: white; /* Text alb pe fundalul gradient */
   text-align: center;
 }
