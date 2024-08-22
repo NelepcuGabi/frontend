@@ -9,8 +9,9 @@ function UploadProject() {
   const [difficulty, setDifficulty] = useState('');
   const [description, setDescription] = useState('');
   const [file, setFile] = useState(null);
-  const [authors, setAuthors] = useState(''); // Adaugă un state pentru autori
+  const [authors, setAuthors] = useState('');
   const [user, setUser] = useState({ id: '', name: '' });
+  const [loading, setLoading] = useState(false); // Loading state
 
   const token = Cookies.get('accessToken');
 
@@ -34,12 +35,11 @@ function UploadProject() {
         if (response.ok) {
           const userDetails = await response.json();
           setUser(userDetails);
-          console.log('Detalii utilizator:', userDetails);
         } else {
-          console.error('Nu s-au putut prelua datele utilizatorului', response.status, await response.text());
+          console.error('Failed to fetch user details', response.status, await response.text());
         }
       } catch (error) {
-        console.error('Eroare la incarcarea datelor utilizatorului:', error);
+        console.error('Error fetching user details:', error);
       }
     }
 
@@ -50,7 +50,12 @@ function UploadProject() {
     event.preventDefault();
 
     if (!file) {
-      alert('Te rog incarca un fisier.');
+      message.error('Te rog încarcă un fișier.');
+      return;
+    }
+
+    if (file && file.type !== 'application/pdf') {
+      message.error('Fișierul trebuie să fie de tip PDF.');
       return;
     }
 
@@ -60,17 +65,12 @@ function UploadProject() {
     formData.append('difficulty', difficulty);
     formData.append('description', description);
     formData.append('file', file);
-    formData.append('authors', authors); // Adaugă autorii la formData
+    formData.append('authors', authors);
     formData.append('userId', user.id); 
     formData.append('userName', user.name);
-    console.log('Form Data:', {
-      title,
-      type,
-      difficulty,
-      description,
-      file: file.name,
-      authors
-    });
+
+    setLoading(true); // Start loading
+
     try {
       const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/files/upload`, {
         method: 'POST',
@@ -86,7 +86,7 @@ function UploadProject() {
         setTitle('');
         setDescription('');
         setFile(null);
-        setAuthors(''); // Resetează câmpul de autori
+        setAuthors('');
         setType('');
         setDifficulty('');
       } else {
@@ -95,8 +95,10 @@ function UploadProject() {
         message.error(`Eroare la încărcarea proiectului: ${errorData.error}`);
       }
     } catch (error) {
-      console.error('Eroare la încărcarea proiectului:', error);
+      console.error('Error uploading project:', error);
       message.error('Eroare la încărcarea proiectului');
+    } finally {
+      setLoading(false); // End loading
     }
   };
 
@@ -171,7 +173,9 @@ function UploadProject() {
             required
           />
         </div>
-        <button type="submit" className="submit-button">Încărcați</button>
+        <button type="submit" className="submit-button" disabled={loading}>
+          {loading ? 'Încărcare...' : 'Încărcați'}
+        </button>
       </form>
     </div>
   );
