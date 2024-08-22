@@ -9,11 +9,11 @@ function UploadProject() {
   const [difficulty, setDifficulty] = useState('');
   const [description, setDescription] = useState('');
   const [file, setFile] = useState(null);
+  const [authors, setAuthors] = useState(''); // Nou câmp pentru autori
   const [user, setUser] = useState({ id: '', name: '' });
 
   // Obține token-ul din cookies
   const token = Cookies.get('accessToken');
- // Verifică dacă token-ul este corect
 
   useEffect(() => {
     if (!token) {
@@ -61,14 +61,15 @@ function UploadProject() {
     formData.append('difficulty', difficulty);
     formData.append('description', description);
     formData.append('file', file);
-    formData.append('userId', user.id); // Include userId
-    formData.append('userName', user.name); // Include userName
+    formData.append('userId', user.id);
+    formData.append('userName', user.name);
+    formData.append('authors', authors); // Adăugare câmp pentru autori
 
     try {
       const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/files/upload`, {
         method: 'POST',
         headers: {
-          'Authorization': `Bearer ${token}`, // Include the token in the headers
+          'Authorization': `Bearer ${token}`,
         },
         body: formData,
         credentials: 'include',
@@ -79,12 +80,13 @@ function UploadProject() {
         setTitle('');
         setDescription('');
         setFile(null);
-        setType(''); // Reset type
-        setDifficulty(''); // Reset difficulty
+        setType('');
+        setDifficulty('');
+        setAuthors(''); // Resetare câmp autori
       } else {
         const errorData = await response.json();
         console.error('Upload error:', errorData);
-        message.error(`Eroare la încărcarea proiectului: Trebuie sa te loghezi`);
+        message.error('Eroare la încărcarea proiectului: Trebuie sa te loghezi');
       }
     } catch (error) {
       console.error('Eroare la încărcarea proiectului:', error);
@@ -143,9 +145,18 @@ function UploadProject() {
           ></textarea>
         </div>
         <div className="form-group">
-          <label htmlFor="file">Fișier:
+          <label htmlFor="authors">Autori:</label> {/* Nou câmp pentru autori */}
+          <input
+            type="text"
+            id="authors"
+            value={authors}
+            onChange={(e) => setAuthors(e.target.value)}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="file">Fișier:</label>
           <div><p>FISIERUL TREBUIE SA FIE PDF</p></div>
-          </label>
           <input
             type="file"
             id="file"
