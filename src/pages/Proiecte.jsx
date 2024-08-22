@@ -9,10 +9,9 @@ function UploadProject() {
   const [difficulty, setDifficulty] = useState('');
   const [description, setDescription] = useState('');
   const [file, setFile] = useState(null);
-  const [authors, setAuthors] = useState(''); // Nou câmp pentru autori
+  const [authors, setAuthors] = useState(''); // Adaugă un state pentru autori
   const [user, setUser] = useState({ id: '', name: '' });
 
-  // Obține token-ul din cookies
   const token = Cookies.get('accessToken');
 
   useEffect(() => {
@@ -61,9 +60,9 @@ function UploadProject() {
     formData.append('difficulty', difficulty);
     formData.append('description', description);
     formData.append('file', file);
-    formData.append('userId', user.id);
-    
-    formData.append('authors', authors); // Adăugare câmp pentru autori
+    formData.append('authors', authors); // Adaugă autorii la formData
+    formData.append('userId', user.id); 
+    formData.append('userName', user.name);
 
     try {
       const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/files/upload`, {
@@ -80,13 +79,13 @@ function UploadProject() {
         setTitle('');
         setDescription('');
         setFile(null);
+        setAuthors(''); // Resetează câmpul de autori
         setType('');
         setDifficulty('');
-        setAuthors(''); // Resetare câmp autori
       } else {
         const errorData = await response.json();
         console.error('Upload error:', errorData);
-        message.error('Eroare la încărcarea proiectului: Trebuie sa te loghezi');
+        message.error(`Eroare la încărcarea proiectului: ${errorData.error}`);
       }
     } catch (error) {
       console.error('Eroare la încărcarea proiectului:', error);
@@ -145,7 +144,7 @@ function UploadProject() {
           ></textarea>
         </div>
         <div className="form-group">
-          <label htmlFor="authors">Autori:</label> {/* Nou câmp pentru autori */}
+          <label htmlFor="authors">Autori:</label> 
           <input
             type="text"
             id="authors"
@@ -155,8 +154,9 @@ function UploadProject() {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="file">Fișier:</label>
-          <div><p>FISIERUL TREBUIE SA FIE PDF</p></div>
+          <label htmlFor="file">Fișier:
+            <div><p>FISIERUL TREBUIE SA FIE PDF</p></div>
+          </label>
           <input
             type="file"
             id="file"
