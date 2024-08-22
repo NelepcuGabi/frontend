@@ -62,7 +62,7 @@ function UploadProject() {
     formData.append('description', description);
     formData.append('file', file);
     formData.append('userId', user.id);
-    formData.append('userName', user.name);
+    
     formData.append('authors', authors); // Adăugare câmp pentru autori
 
     try {
