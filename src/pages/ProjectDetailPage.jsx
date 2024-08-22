@@ -64,11 +64,11 @@ function ProjectDetailPage() {
             case 'application/vnd.openxmlformats-officedocument.wordprocessingml.document':
                 return (
                     <a href={fileUrl} target="_blank" rel="noopener noreferrer" className="view-button">
-                        Vizualizati Docomunet
+                        Vizualizați Documentul
                     </a>
                 );
             default:
-                return <div>Previzualizarea nu este disponiibila.</div>;
+                return <div>Previzualizarea nu este disponibilă pentru acest tip de fișier.</div>;
         }
     };
 
