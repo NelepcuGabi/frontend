@@ -90,10 +90,10 @@ function ProjectDetailPage() {
                 )}
             </div>
             <div className="comments-section">
-            {project.filename ? (
+                {project.filename ? (
                     <Comments filename={project.filename} />
                 ) : (
-                    <div>Niciun fisier disponibil penru comentarii.</div>
+                    <div>Niciun fisier disponibil pentru comentarii.</div>
                 )}
             </div>
         </div>
