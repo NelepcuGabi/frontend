@@ -63,7 +63,14 @@ function UploadProject() {
     formData.append('authors', authors); // Adaugă autorii la formData
     formData.append('userId', user.id); 
     formData.append('userName', user.name);
-
+    console.log('Form Data:', {
+      title,
+      type,
+      difficulty,
+      description,
+      file: file.name,
+      authors
+    });
     try {
       const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/files/upload`, {
         method: 'POST',
